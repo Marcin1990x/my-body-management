@@ -1,17 +1,15 @@
 package pl.koneckimarcin.mybodymanagement.entry;
 
-import java.time.LocalDate;
-
 public class Entry {
 
     private int id;
     private String username;
-    private LocalDate entryDate;
+    private String entryDate;
     private float weight;
     private double steps;
     private String comment;
 
-    public Entry(int id, String username, LocalDate entryDate, float weight, double steps, String comment) {
+    public Entry(int id, String username, String entryDate, float weight, double steps, String comment) {
         this.id = id;
         this.username = username;
         this.entryDate = entryDate;
@@ -36,11 +34,11 @@ public class Entry {
         this.username = username;
     }
 
-    public LocalDate getEntryDate() {
+    public String getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(LocalDate entryDate) {
+    public void setEntryDate(String entryDate) {
         this.entryDate = entryDate;
     }
 

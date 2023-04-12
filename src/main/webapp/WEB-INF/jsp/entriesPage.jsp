@@ -7,6 +7,14 @@
     <h1>Entries page</h1>
         <table>
             <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>USERNAME</td>
+                    <td>ENTRY DATE</td>
+                    <td>WEIGHT</td>
+                    <td>STEPS</td>
+                    <td>COMMENT</td>
+                </tr>
             <c:forEach items="${entriesList}" var="entry">
                 <tr>
                     <td>${entry.id}</td>
@@ -19,5 +27,6 @@
             </c:forEach>
             </tbody>
         </table>
+        <a href="add-entry"><button>Add entry</button></a>
     </body>
 </html>
