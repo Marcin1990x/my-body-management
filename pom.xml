@@ -47,17 +47,16 @@
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
+		<!-- maintain jsp -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
-		<!-- maintain jsp -->
 		<!-- maintain jstl c: -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>glassfish-jstl</artifactId>
 		</dependency>
-		<!-- maintain jstl c: -->
 
 	</dependencies>
 

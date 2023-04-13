@@ -18,7 +18,7 @@
                     <form:input type="text" path="steps" required="required"/>
 
                     <form:label path="comment">Comment</form:label>
-                    <form:input type="text" path="comment" required="required"/>
+                    <form:input type="text" path="comment"/>
 
                     <form:input type="hidden" path="id"/>
                     <form:input type="hidden" path="username"/>

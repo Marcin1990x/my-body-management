@@ -21,6 +21,7 @@ public class EntryController {
     @GetMapping("entries")
     public String listEntries(ModelMap model) {
         List<Entry> entriesList = EntryService.getEntries();
+        entryService.sortByDate(entriesList);
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
     }
