@@ -23,6 +23,8 @@
                     <td>${entry.weight}</td>
                     <td>${entry.steps}</td>
                     <td>${entry.comment}</td>
+                    <td><a href="delete-entry?id=${entry.id}"><button>Delete entry</button></a></td>
+                    <td><a href="update-entry?id=${entry.id}"><button>Edit entry</button></a></td>
                 </tr>
             </c:forEach>
             </tbody>

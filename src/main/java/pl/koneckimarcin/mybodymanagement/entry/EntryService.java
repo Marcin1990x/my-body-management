@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class EntryService {
@@ -29,6 +30,23 @@ public class EntryService {
 
     public void addNewEntry(String date, float weight, double steps, String comment) {
         Entry entry = new Entry(++entriesCount, "Marcin", date, weight, steps, comment);
+        entries.add(entry);
+    }
+
+    public void deleteById(int id) {
+        // check if entry with id exists
+        Predicate<Entry> predicate = entry -> entry.getId() == id;
+        entries.removeIf(predicate);
+    }
+
+    public Entry findById(int id) {
+        Predicate<Entry> predicate = entry -> entry.getId() == id;
+        Entry entry = entries.stream().filter(predicate).findFirst().get();
+        return entry;
+    }
+
+    public void updateEntry(Entry entry) {
+        deleteById(entry.getId());
         entries.add(entry);
     }
 }
