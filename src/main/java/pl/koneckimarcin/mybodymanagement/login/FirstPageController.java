@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FirstPageController {
 
     @GetMapping("/")
-    public String goToFirstPage(){
+    public String goToFirstPage() {
 
         return "firstPage";
     }

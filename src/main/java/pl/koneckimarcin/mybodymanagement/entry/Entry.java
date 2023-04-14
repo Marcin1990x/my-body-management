@@ -1,7 +1,17 @@
 package pl.koneckimarcin.mybodymanagement.entry;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Entry {
 
+    public Entry() {
+    }
+
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
     private String entryDate;

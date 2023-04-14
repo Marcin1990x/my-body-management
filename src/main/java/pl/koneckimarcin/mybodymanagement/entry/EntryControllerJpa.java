@@ -10,17 +10,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Controller
-public class EntryController {
+public class EntryControllerJpa {
 
     private EntryService entryService;
+    private EntryRepository entryRepository;
 
-    public EntryController(EntryService entryService) {
+    public EntryControllerJpa(EntryRepository entryRepository, EntryService entryService) {
+        this.entryRepository = entryRepository;
         this.entryService = entryService;
     }
 
     @GetMapping("entries")
     public String listEntries(ModelMap model) {
-        List<Entry> entriesList = EntryService.getEntries();
+        List<Entry> entriesList = entryRepository.findAll();
         entryService.sortByDate(entriesList);
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
@@ -35,20 +37,21 @@ public class EntryController {
 
     @PostMapping("add-entry")
     public String addNewEntry(Entry entry) {
-        entryService.addNewEntry(entry.getEntryDate(), entry.getWeight(), entry.getSteps(), entry.getComment());
+        entry.setUsername("Marcin");
+        entryRepository.save(entry);
         return "redirect:entries";
     }
 
     @GetMapping("delete-entry")
     public String deleteEntryById(@RequestParam int id) {
-        entryService.deleteById(id);
+        entryRepository.deleteById(id);
         return "redirect:entries";
     }
 
     // 1 of 2: find entry by id and put it to model
     @GetMapping("update-entry")
     public String findById(@RequestParam int id, ModelMap model) {
-        Entry entry = entryService.findById(id);
+        Entry entry = entryRepository.findById(id).get();
         model.put("entry", entry);
         return "addEntry";
     }
@@ -58,9 +61,7 @@ public class EntryController {
     public String updateEntry(Entry entry) {
         entry.setId(entry.getId());
         entry.setUsername("Marcin");
-        entryService.updateEntry(entry);
+        entryRepository.save(entry);
         return "redirect:entries";
     }
-
-
 }
