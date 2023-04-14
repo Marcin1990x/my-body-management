@@ -2,6 +2,8 @@
 
 <html>
     <head>
+        <link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
         <title>Add entry</title>
     </head>
     <body>
@@ -23,8 +25,11 @@
                     <form:input type="hidden" path="id"/>
                     <form:input type="hidden" path="username"/>
 
-                <input type="submit" class="btn" value="Add"/>
+                <input type="submit" class="btn btn-success" value="Add"/>
             </form:form>
         </div>
+        <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+        <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
+        <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     </body>
 </html>

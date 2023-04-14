@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
+        <link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
         <title>Entries page</title>
     </head>
     <body>
@@ -30,5 +32,9 @@
             </tbody>
         </table>
         <a href="add-entry"><button>Add entry</button></a>
+
+        <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+        <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
+        <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     </body>
 </html>
