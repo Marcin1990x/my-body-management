@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html lang="pl">
     <head>
+        <meta charset="utf-8">
         <link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
         <title>Entries page</title>
