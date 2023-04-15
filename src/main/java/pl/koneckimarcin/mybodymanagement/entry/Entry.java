@@ -3,6 +3,11 @@ package pl.koneckimarcin.mybodymanagement.entry;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.PastOrPresent;
+
+import java.time.LocalDate;
 
 @Entity
 public class Entry {
@@ -14,12 +19,17 @@ public class Entry {
     @GeneratedValue
     private int id;
     private String username;
-    private String entryDate;
+    @PastOrPresent(message = "The date cannot be from the future.")
+    private LocalDate entryDate;
+    @Min(value = 40, message = "Put correct weight.")
+    @Max(value = 150, message = "Put correct weight.")
     private float weight;
-    private double steps;
+    @Min(value = 1000, message = "Please enter the correct number of steps.")
+    @Max(value = 80000, message = "Please enter the correct number of steps.")
+    private int steps;
     private String comment;
 
-    public Entry(int id, String username, String entryDate, float weight, double steps, String comment) {
+    public Entry(int id, String username, LocalDate entryDate, float weight, int steps, String comment) {
         this.id = id;
         this.username = username;
         this.entryDate = entryDate;
@@ -44,11 +54,11 @@ public class Entry {
         this.username = username;
     }
 
-    public String getEntryDate() {
+    public LocalDate getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(String entryDate) {
+    public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
 
@@ -60,11 +70,11 @@ public class Entry {
         this.weight = weight;
     }
 
-    public double getSteps() {
+    public int getSteps() {
         return steps;
     }
 
-    public void setSteps(double steps) {
+    public void setSteps(int steps) {
         this.steps = steps;
     }
 
