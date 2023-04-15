@@ -1,3 +1,5 @@
+# for H2
+
 INSERT into Entry (ID, USERNAME, ENTRY_DATE, WEIGHT, STEPS, COMMENT)
 VALUES (2, 'Marcin', '2023-04-01', 72, 10000, 'kanapa');
 
