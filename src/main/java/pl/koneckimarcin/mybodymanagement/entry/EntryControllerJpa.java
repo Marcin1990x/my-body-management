@@ -44,8 +44,12 @@ public class EntryControllerJpa {
         }
 
         entry.setUsername("Marcin");
-        entryRepository.save(entry);
-        return "redirect:entries";
+        List<Entry> entriesList = entryRepository.findAll();
+        if (entryService.checkForDataDuplicate(entry.getEntryDate(), entriesList)) {
+            entryRepository.save(entry);
+            return "redirect:entries";
+        }
+        return "addEntry";
     }
 
     @GetMapping("delete-entry")

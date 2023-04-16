@@ -45,7 +45,7 @@ public class SpringSecurityConfiguration {
 
 
     // give access to /h2-console
-    @Bean
+/*    @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity.authorizeHttpRequests(
@@ -56,6 +56,6 @@ public class SpringSecurityConfiguration {
         httpSecurity.headers().frameOptions().disable();
 
         return httpSecurity.build();
-    }
+    }*/
 
 }
