@@ -1,4 +1,4 @@
-<%@ include file="header.jspf" %>
+<%@ include file="common/header.jspf" %>
 
         <title>Add entry</title>
     </head>

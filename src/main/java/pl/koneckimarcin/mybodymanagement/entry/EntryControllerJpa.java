@@ -1,6 +1,8 @@
 package pl.koneckimarcin.mybodymanagement.entry;
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -32,7 +34,7 @@ public class EntryControllerJpa {
 
     @GetMapping("add-entry")
     public String showAddEntryPage(ModelMap model) {
-        Entry entry = new Entry(0, "", LocalDate.now(), 0, 0, "");
+        Entry entry = new Entry(0, "", LocalDate.now(), 59, 10000, "");
         model.put("entry", entry);
         return "addEntry";
     }
@@ -43,8 +45,9 @@ public class EntryControllerJpa {
             return "addEntry";
         }
 
-        entry.setUsername("Marcin");
+        entry.setUsername(getLoggedInUsername());
         List<Entry> entriesList = entryRepository.findAll();
+        // put message for user about data duplication
         if (entryService.checkForDataDuplicate(entry.getEntryDate(), entriesList)) {
             entryRepository.save(entry);
             return "redirect:entries";
@@ -72,10 +75,15 @@ public class EntryControllerJpa {
         if (result.hasErrors()) {
             return "addEntry";
         }
-
+        // put here data duplicate validation
         entry.setId(entry.getId());
-        entry.setUsername("Marcin");
+        entry.setUsername(getLoggedInUsername());
         entryRepository.save(entry);
         return "redirect:entries";
+    }
+
+    public String getLoggedInUsername(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 }
