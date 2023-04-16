@@ -1,9 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="pl">
-    <head>
-        <meta charset="utf-8">
-        <link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
-        <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+
+<%@ include file="common/header.jspf" %>
+
         <title>Entries page</title>
     </head>
     <body>
@@ -14,8 +11,6 @@
                 <tbody>
                     <thead>
                         <tr>
-                            <td>ID</td>
-                            <td>USERNAME</td>
                             <td>ENTRY DATE</td>
                             <td>WEIGHT</td>
                             <td>STEPS</td>
@@ -24,8 +19,6 @@
                     </thead>
                 <c:forEach items="${entriesList}" var="entry">
                     <tr>
-                        <td>${entry.id}</td>
-                        <td>${entry.username}</td>
                         <td>${entry.entryDate}</td>
                         <td>${entry.weight}</td>
                         <td>${entry.steps}</td>
@@ -37,10 +30,5 @@
                 </tbody>
             </table>
             <a href="add-entry" class="btn btn-success">Add entry</a>
-
-            <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-            <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
-            <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-        </div>
-    </body>
-</html>
+    </div>
+<%@ include file="common/footer.jspf" %>
