@@ -8,6 +8,7 @@
         <title>Add entry</title>
     </head>
     <body>
+    <%@ include file="common/navigation_bar.jspf" %>
         <h1><center>Add entry</center></h1>
         <hr>
         <div class="container">

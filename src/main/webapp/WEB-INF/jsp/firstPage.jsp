@@ -6,7 +6,8 @@
         <title>First Page</title>
     </head>
     <body>
-    <h1>ELO</h1>
+    <%@ include file="common/navigation_bar.jspf" %>
+    <h1>Welcome !</h1>
     <a href="entries">Daily entries</a>
     <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="webjars/jquery/3.6.4/jquery.min.js"></script>

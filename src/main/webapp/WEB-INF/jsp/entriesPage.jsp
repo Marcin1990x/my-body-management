@@ -7,6 +7,7 @@
         <title>Entries page</title>
     </head>
     <body>
+    <%@ include file="common/navigation_bar.jspf" %>
     <div class="container">
         <h1>Entries page</h1>
             <table class="table">
