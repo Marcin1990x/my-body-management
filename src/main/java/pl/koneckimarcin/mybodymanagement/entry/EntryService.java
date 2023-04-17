@@ -15,11 +15,14 @@ public class EntryService {
     }
 
     public boolean checkForDataDuplicate(LocalDate entryDate, List<Entry> entriesList) {
-
         for (Entry entry : entriesList) {
             if (entry.getEntryDate().equals(entryDate))
                 return false;
         }
         return true;
+    }
+
+    public int countStepsFromLastSevenDays(List<Entry> entries){
+        return entries.stream().map(Entry::getSteps).mapToInt(Integer::intValue).sum();
     }
 }

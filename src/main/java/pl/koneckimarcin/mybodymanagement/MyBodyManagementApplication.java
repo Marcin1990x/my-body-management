@@ -8,10 +8,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class MyBodyManagementApplication extends SpringBootServletInitializer {
 
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-		return application.sources(MyBodyManagementApplication.class);
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(MyBodyManagementApplication.class, args);
 	}

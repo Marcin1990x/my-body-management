@@ -7,6 +7,7 @@
 
         <center>
         <h1>Welcome ${username} !</h1>
+        <h1>Last 7 days steps: ${counts} !</h1>
         <hr>
         <a href="entries" class="btn btn-success">Show daily entries</a>
         </center>
