@@ -7,6 +7,9 @@
     <%@ include file="common/navigation_bar.jspf" %>
     <div class="container">
         <h1>Entries page</h1>
+        <hr>
+            <a href="add-entry" class="btn btn-success">Add entry</a>
+        <hr>
             <table class="table">
                 <tbody>
                     <thead>
@@ -29,6 +32,5 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <a href="add-entry" class="btn btn-success">Add entry</a>
     </div>
 <%@ include file="common/footer.jspf" %>

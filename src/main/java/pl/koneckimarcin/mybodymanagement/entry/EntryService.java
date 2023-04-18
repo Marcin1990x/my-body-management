@@ -10,7 +10,7 @@ import java.util.List;
 public class EntryService {
 
     public List<Entry> sortByDate(List<Entry> entriesList) {
-        entriesList.sort(Comparator.comparing(Entry::getEntryDate));
+        entriesList.sort(Comparator.comparing(Entry::getEntryDate).reversed());
         return entriesList;
     }
 
@@ -22,7 +22,8 @@ public class EntryService {
         return true;
     }
 
-    public int countStepsFromLastSevenDays(List<Entry> entries){
-        return entries.stream().map(Entry::getSteps).mapToInt(Integer::intValue).sum();
+    public int countStepsFromLastSevenDays(List<Entry> entriesList){
+        sortByDate(entriesList);
+        return entriesList.stream().map(Entry::getSteps).limit(7).mapToInt(Integer::intValue).sum();
     }
 }
