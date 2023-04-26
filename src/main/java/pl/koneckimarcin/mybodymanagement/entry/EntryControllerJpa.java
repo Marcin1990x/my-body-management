@@ -1,6 +1,8 @@
 package pl.koneckimarcin.mybodymanagement.entry;
 
 import jakarta.validation.Valid;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class EntryControllerJpa {
@@ -26,8 +29,10 @@ public class EntryControllerJpa {
 
     @GetMapping("entries")
     public String listEntries(ModelMap model) {
-        List<Entry> entriesList = entryRepository.findAll();
-        entryService.sortByDate(entriesList);
+        List<Entry> entriesList = entryRepository
+                .findAll(PageRequest.of(0, 10, Sort.by(Sort.Order.desc("entryDate"))))
+                .stream()
+                .collect(Collectors.toList());
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
     }
@@ -82,7 +87,7 @@ public class EntryControllerJpa {
         return "redirect:entries";
     }
 
-    public String getLoggedInUsername(){
+    public String getLoggedInUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication.getName();
     }

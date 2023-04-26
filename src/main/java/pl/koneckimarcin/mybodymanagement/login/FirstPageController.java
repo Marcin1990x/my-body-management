@@ -1,5 +1,6 @@
 package pl.koneckimarcin.mybodymanagement.login;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -17,20 +18,20 @@ public class FirstPageController {
     private EntryRepository repository;
     private EntryService entryService;
 
-    public FirstPageController(EntryRepository repository, EntryService entryService){
+    public FirstPageController(EntryRepository repository, EntryService entryService) {
         this.repository = repository;
         this.entryService = entryService;
     }
 
     @GetMapping("/")
     public String goToFirstPage(ModelMap model) {
-        List<Entry> entries = repository.findAll();
+        List<Entry> entries = repository.findAll(Sort.by(Sort.Order.desc("entryDate")));
         model.put("counts", entryService.countStepsFromLastSevenDays(entries));
         model.put("username", getLoggedInUsername());
         return "firstPage";
     }
 
-    public String getLoggedInUsername(){
+    public String getLoggedInUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication.getName();
     }
