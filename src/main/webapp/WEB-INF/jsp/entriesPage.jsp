@@ -32,10 +32,8 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <select class="form-select" style="width:70px">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+
+        <%@ include file="paginationButtons.jspf" %>
+
     </div>
 <%@ include file="common/footer.jspf" %>

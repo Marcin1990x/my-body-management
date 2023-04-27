@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
 @Controller
 public class EntryControllerJpa {
 
+    private final int PAGE_SIZE = 10;
+
     private EntryService entryService;
     private EntryRepository entryRepository;
 
@@ -28,11 +30,16 @@ public class EntryControllerJpa {
     }
 
     @GetMapping("entries")
-    public String listEntries(ModelMap model) {
+    public String listEntries(ModelMap model, @RequestParam(defaultValue = "0") int page) {
+
+        List<Entry> entriesList1 = entryRepository.findAll();
+        model.addAttribute("pageCount", entryService.getPageCount(entriesList1, PAGE_SIZE));
+
         List<Entry> entriesList = entryRepository
-                .findAll(PageRequest.of(0, 10, Sort.by(Sort.Order.desc("entryDate"))))
+                .findAll(PageRequest.of(page, PAGE_SIZE, Sort.by(Sort.Order.desc("entryDate"))))
                 .stream()
                 .collect(Collectors.toList());
+
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
     }

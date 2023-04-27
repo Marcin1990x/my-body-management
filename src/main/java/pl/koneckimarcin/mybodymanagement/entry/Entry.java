@@ -24,7 +24,7 @@ public class Entry {
     @Min(value = 40, message = "Put correct weight.")
     @Max(value = 150, message = "Put correct weight.")
     private float weight;
-    @Min(value = 1000, message = "Please enter the correct number of steps.")
+    @Min(value = 1, message = "Please enter the correct number of steps.")
     @Max(value = 80000, message = "Please enter the correct number of steps.")
     private int steps;
     private String comment;

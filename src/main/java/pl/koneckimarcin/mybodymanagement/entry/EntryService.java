@@ -3,7 +3,6 @@ package pl.koneckimarcin.mybodymanagement.entry;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -17,7 +16,12 @@ public class EntryService {
         return true;
     }
 
-    public int countStepsFromLastSevenDays(List<Entry> entriesList){
+    public int countStepsFromLastSevenDays(List<Entry> entriesList) {
         return entriesList.stream().map(Entry::getSteps).limit(7).mapToInt(Integer::intValue).sum();
+    }
+
+    public int getPageCount(List<Entry> entriesList, int pageSize) {
+        double div = (double) entriesList.size() / pageSize;
+        return (int) Math.ceil(div);
     }
 }
