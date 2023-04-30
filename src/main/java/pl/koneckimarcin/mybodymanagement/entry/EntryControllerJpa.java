@@ -40,6 +40,7 @@ public class EntryControllerJpa {
                 .stream()
                 .collect(Collectors.toList());
 
+        model.addAttribute("activePage", page);
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
     }

@@ -2,6 +2,13 @@
 <%@ include file="common/header.jspf" %>
 
         <title>Entries page</title>
+
+        <style>
+            a[href$="page=${activePage}"]{
+                background-color: #f7cac9;
+            }
+        </style>
+
     </head>
     <body>
     <%@ include file="common/navigation_bar.jspf" %>
