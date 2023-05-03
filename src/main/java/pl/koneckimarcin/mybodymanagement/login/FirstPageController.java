@@ -26,10 +26,9 @@ public class FirstPageController {
     @GetMapping("/")
     public String goToFirstPage(ModelMap model) {
         List<Entry> entries = repository.findAll(Sort.by(Sort.Order.desc("entryDate")));
-        model.put("weightProgress", entryService.monthSummaryWeightProgress(entries, 4));
-        model.put("aprilSteps", entryService.monthSummaryTotalSteps(entries, 4));
-        model.put("activeAndRegenerationDays", entryService.monthSummaryActiveAndRegenerationDays(entries,4 ));
+        model.put("monthly", entryService.monthlySummaries(entries));
         model.put("username", getLoggedInUsername());
+
         return "firstPage";
     }
 
