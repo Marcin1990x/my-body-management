@@ -8,8 +8,6 @@
         <center>
             <h1>Welcome ${username} !</h1>
 
-            <h2>You did ${counts} steps in last 7 days!</h2>
-
             <h2>Your monthly weight progress:
                 <c:out value="${weightProgress[0]}"/>
                 -->

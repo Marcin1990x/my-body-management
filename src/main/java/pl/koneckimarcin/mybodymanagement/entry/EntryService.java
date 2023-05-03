@@ -17,23 +17,19 @@ public class EntryService {
         return true;
     }
 
-    public int countStepsFromLastSevenDays(List<Entry> entriesList) {
-        return entriesList.stream().map(Entry::getSteps).limit(7).mapToInt(Integer::intValue).sum();
-    }
-
-    private List<Entry> entriesFromApril(List<Entry> entriesList) {
+    private List<Entry> entriesFromMonth(List<Entry> entriesList, int month) {
         return entriesList.stream().
-                filter(entry -> entry.getEntryDate().getMonthValue() == 4)
+                filter(entry -> entry.getEntryDate().getMonthValue() == month)
                 .collect(Collectors.toList());
     }
 
-    public int monthSummaryTotalSteps(List<Entry> entriesList) {
-        List<Entry> aprilEntries = entriesFromApril(entriesList);
+    public int monthSummaryTotalSteps(List<Entry> entriesList, int month) {
+        List<Entry> aprilEntries = entriesFromMonth(entriesList, month);
         return aprilEntries.stream().map(Entry::getSteps).mapToInt(Integer::intValue).sum();
     }
 
-    public float[] monthSummaryWeightProgress(List<Entry> entriesList) {
-        List<Entry> aprilEntries = entriesFromApril(entriesList);
+    public float[] monthSummaryWeightProgress(List<Entry> entriesList, int month) {
+        List<Entry> aprilEntries = entriesFromMonth(entriesList, month);
 
         float weightProgress[] = new float[2];
         weightProgress[1] = aprilEntries.get(0).getWeight();
@@ -42,8 +38,8 @@ public class EntryService {
         return weightProgress;
     }
 
-    public int[] monthSummaryActiveAndRegenerationDays(List<Entry> entriesList) {
-        List<Entry> aprilEntries = entriesFromApril(entriesList);
+    public int[] monthSummaryActiveAndRegenerationDays(List<Entry> entriesList, int month) {
+        List<Entry> aprilEntries = entriesFromMonth(entriesList, month);
 
         int activeAndRegenerationDays[] = new int[2];
         activeAndRegenerationDays[0] = aprilEntries.size() - aprilEntries.stream()
