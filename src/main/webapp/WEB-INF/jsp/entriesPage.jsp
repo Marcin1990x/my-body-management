@@ -21,10 +21,12 @@
                 <tbody>
                     <thead>
                         <tr>
-                            <td>ENTRY DATE</td>
-                            <td>WEIGHT</td>
-                            <td>STEPS</td>
-                            <td>COMMENT</td>
+                            <th>ENTRY DATE</th>
+                            <th>WEIGHT</th>
+                            <th>STEPS</th>
+                            <th>COMMENT</th>
+                            <th>DELETE</th>
+                            <th>UPDATE</th>
                         </tr>
                     </thead>
                 <c:forEach items="${entriesList}" var="entry">
