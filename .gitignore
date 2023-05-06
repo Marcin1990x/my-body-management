@@ -34,3 +34,6 @@ build/
 .vscode/
 
 /prod/
+/src/main/ui/README.md
+/src/main/ui/.gitignore
+/src/main/ui/public/
