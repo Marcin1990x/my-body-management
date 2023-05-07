@@ -28,7 +28,6 @@ public class EntryControllerJpa {
         this.entryRepository = entryRepository;
         this.entryService = entryService;
     }
-
     @GetMapping("entries")
     public String listEntries(ModelMap model, @RequestParam(defaultValue = "0") int page) {
 
@@ -44,14 +43,12 @@ public class EntryControllerJpa {
         model.addAttribute("entriesList", entriesList);
         return "entriesPage";
     }
-
     @GetMapping("add-entry")
     public String showAddEntryPage(ModelMap model) {
         Entry entry = new Entry(0, "", LocalDate.now(), 59, 10000, "");
         model.put("entry", entry);
         return "addEntry";
     }
-
     @PostMapping("add-entry")
     public String addNewEntry(@Valid Entry entry, BindingResult result) {
         if (result.hasErrors()) {
