@@ -18,7 +18,7 @@
                             <tr>
                                 <td>
                                     <ul class="list-group">
-                                      <li class="list-group-item">Your monthly weight progress: ${summary.startWeight} --> ${summary.endWeight}</li>
+                                      <li class="list-group-item">Your monthly weight progress: ${summary.endWeight} --> ${summary.startWeight}</li>
                                       <li class="list-group-item">Total monthly steps: ${summary.totalSteps}</li>
                                       <li class="list-group-item">Total active days: ${summary.activeDaysCount}</li>
                                       <li class="list-group-item">Total regeneration days: ${summary.regenerationDaysCount}</li>

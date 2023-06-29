@@ -58,8 +58,8 @@ public class EntryService {
                 .map(entry -> entry
                         .getEntryDate()
                         .getMonthValue())
-                        .distinct()
-                        .collect(Collectors.toList());
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public List<MonthlySummary> monthlySummaries(List<Entry> entriesList) {

@@ -71,6 +71,12 @@ public class EntryControllerJpa {
         return "redirect:entries";
     }
 
+    @GetMapping("delete-entry-confirmation")
+    public String deleteEntryByIdConfirmation(@RequestParam int id, ModelMap model) {
+        model.put("idToDelete", id);
+        return "entryDeleteConfirmation";
+    }
+
     // 1 of 2: find entry by id and put it to model
     @GetMapping("update-entry")
     public String findById(@RequestParam int id, ModelMap model) {

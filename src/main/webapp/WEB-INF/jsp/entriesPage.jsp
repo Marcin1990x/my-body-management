@@ -35,7 +35,7 @@
                         <td>${entry.weight}</td>
                         <td>${entry.steps}</td>
                         <td>${entry.comment}</td>
-                        <th><a href="delete-entry?id=${entry.id}" class="btn btn-danger">Delete entry</a></th>
+                        <th><a href="delete-entry-confirmation?id=${entry.id}" class="btn btn-danger">Delete entry</a></th>
                         <th><a href="update-entry?id=${entry.id}" class="btn btn-warning">Edit entry</a></th>
                     </tr>
                 </c:forEach>
